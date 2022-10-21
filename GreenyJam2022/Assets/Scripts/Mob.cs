@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Mob : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject enemy;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        GameObject collisionGameObject = collision.gameObject;
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerMovement.WaterCount = PlayerMovement.WaterCount - 1;
+        }
     }
 }
+
+
