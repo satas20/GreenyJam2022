@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
     public static int WaterCount=1;
-    
-
+    public Animator animator;
+    bool isJumping = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -21,17 +21,22 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        
+        if (IsGrounded()) { isJumping = false; }
         if (Input.GetKeyDown("w") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            animator.SetBool("IsJumping", true);
         }
 
         if (Input.GetKeyDown("w") && rb.velocity.y > 0f)
         {
+            isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-
+        
+        
         Flip();
     }
 
@@ -42,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
+       
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
@@ -62,6 +68,10 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerMovement.WaterCount++;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            animator.SetBool("IsJumping", false);
         }
     }
 }
