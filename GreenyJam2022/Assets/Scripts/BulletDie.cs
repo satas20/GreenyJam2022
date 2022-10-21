@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletDie : MonoBehaviour
 {
     public float dieTime;
+    public GameObject Water;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class BulletDie : MonoBehaviour
     }
    void Die()
     {
+        GameObject NewWater = Instantiate(Water, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
