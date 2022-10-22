@@ -5,7 +5,7 @@ using UnityEngine;
 public class RainDamage : MonoBehaviour
 {
     [SerializeField] GameObject rainD;
-    [SerializeField] float secondSpawn = 1f;
+    [SerializeField] float secondSpawn = 0.5f;
     [SerializeField] float minTras;
     [SerializeField] float maxTras;
 
@@ -23,7 +23,7 @@ public class RainDamage : MonoBehaviour
             var position = new Vector2(wanted, transform.position.y);
             GameObject gameObject = Instantiate(rainD, position, Quaternion.identity);
             yield return new WaitForSeconds(secondSpawn);
-            Destroy(gameObject, 1f);
+
         }
     }
     // Update is called once per frame
