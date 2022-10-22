@@ -24,7 +24,8 @@ public class EnemyBullet : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(target.transform.position.x, target.transform.position.y, target.transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position
+            , Time.deltaTime * speed);
         lifetime += Time.deltaTime;
         if (lifetime > resetTime)
             Destroy(gameObject);
