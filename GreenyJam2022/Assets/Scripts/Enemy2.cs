@@ -18,7 +18,7 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     private Transform target;
     private Transform player;
-
+    private int health = 2;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -99,8 +99,15 @@ public class Enemy2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            health--;
+            {
+                if(health == 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
+
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Enemy"))
         {
             if (movingRight == true)

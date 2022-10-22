@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - Rain
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

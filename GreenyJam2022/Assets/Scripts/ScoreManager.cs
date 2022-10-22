@@ -6,7 +6,8 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI Water;
+    public TextMeshProUGUI health;
     int score=1;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         score = PlayerMovement.WaterCount;
-        text.text = "X" + PlayerMovement.WaterCount.ToString();
+        Water.text = "X" + PlayerMovement.WaterCount.ToString();
+        if (PlayerMovement.WaterCount == 0)
+        {
+            health.text = "X" + PlayerMovement.WaterCount.ToString();
+
+        }
     }
 }
