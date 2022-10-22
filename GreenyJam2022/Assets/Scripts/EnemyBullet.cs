@@ -9,11 +9,12 @@ public class EnemyBullet : MonoBehaviour
     private float lifetime;
     private Animator anim;
     private BoxCollider2D coll;
-
+    GameObject target;
     private bool hit;
 
     private void Awake()
     {
+        target =GameObject.FindGameObjectWithTag("Player");
        // anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
         
@@ -23,7 +24,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void Update()
     {
-
+        transform.Translate(target.transform.position.x, target.transform.position.y, target.transform.position.z);
         lifetime += Time.deltaTime;
         if (lifetime > resetTime)
             Destroy(gameObject);
