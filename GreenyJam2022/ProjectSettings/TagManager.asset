@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Enemy
   - Bullet
+  - Rain
   layers:
   - Default
   - TransparentFX

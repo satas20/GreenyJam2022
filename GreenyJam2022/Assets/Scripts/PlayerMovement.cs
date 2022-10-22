@@ -81,5 +81,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsDoubleJumping", false);
 
         }
+        if (collision.gameObject.CompareTag("Rain"))
+        {
+            if (PlayerMovement.WaterCount >0)
+            {
+                PlayerMovement.WaterCount--;
+            }
+        }
     }
 }
