@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
-    public GameObject Items;
+   public GameObject Items;
     public GameObject Text;
-
+    public static int selectedlevel;
+    public int level;
     
     private void Awake()
     {
@@ -31,15 +32,19 @@ public class MainMenuUI : MonoBehaviour
     {
         
     }
-    public void PlayGame()
+    public void PlayGame(string name)
     {
-
+        name = "Level 1";
+        SceneManager.LoadScene(name);
     }
 
 
     public void ChooseLevel()
     {
-        
+        selectedlevel = level;
+        SceneManager.LoadScene("Level " + level.ToString());
+       
+
     }
 
     public void QuitGame()
@@ -52,7 +57,7 @@ public class MainMenuUI : MonoBehaviour
     {
         Items.SetActive(false);
         Text.SetActive(true);
-        BackButton();
+        
 
     }
      public void BackButton()

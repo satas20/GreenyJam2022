@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Water
   - Enemy
+  - Text
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: tel
+    uniqueID: 3201811933
+    locked: 0
+  - name: "\xE7\xF6pl\xFCk"
+    uniqueID: 3238758843
+    locked: 0
+  - name: ground
+    uniqueID: 826301649
+    locked: 0
+  - name: player
+    uniqueID: 1210944379
     locked: 0
