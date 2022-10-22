@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1998438997330397518}
   - component: {fileID: 207463829908047286}
   - component: {fileID: -5166404724185905409}
-  - component: {fileID: -6355833434139578267}
+  - component: {fileID: 3731545656352957416}
   m_Layer: 0
-  m_Name: RainDamage
+  m_Name: RainObject
   m_TagString: Rain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-6355833434139578267
+--- !u!114 &3731545656352957416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

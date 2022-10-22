@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 225694203474629273}
   - component: {fileID: 225694203474629270}
   m_Layer: 0
-  m_Name: DamageRain
+  m_Name: YagdiranRaindamla
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
