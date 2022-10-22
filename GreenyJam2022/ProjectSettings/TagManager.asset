@@ -11,6 +11,7 @@ TagManager:
   - Rain
   - Text
   - EnemuBullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

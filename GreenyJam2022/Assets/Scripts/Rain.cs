@@ -15,6 +15,10 @@ public class Rain : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
         // Start is called before the first frame update
         void Start()
