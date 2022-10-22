@@ -1939,7 +1939,7 @@ GameObject:
   - component: {fileID: 8144806721739681528}
   - component: {fileID: 8144806721739681510}
   m_Layer: 5
-  m_Name: Background
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
