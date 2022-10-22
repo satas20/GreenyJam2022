@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Rain
   - Text
+  - EnemuBullet
   layers:
   - Default
   - TransparentFX

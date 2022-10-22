@@ -40,7 +40,7 @@ public class EnemyBulletNot : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
 
