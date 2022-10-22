@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public static int WaterCount=3;
     public Animator animator;
     bool isJumping = false;
-    private int jumpCount=0;
+    [SerializeField] private int jumpCount = 0;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -24,12 +24,17 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
         
-        if (IsGrounded()) { isJumping = false; jumpCount = 0; }
-        if (Input.GetKeyDown("w") && jumpCount < 1)
+        if (IsGrounded()) { isJumping = false; jumpCount = 2; }
+        if (Input.GetKeyDown("w") && jumpCount >0)
         {
-            jumpCount++;
+
+            if (jumpCount == 1) {
+                animator.SetBool("IsDoubleJumping", true);
+            }
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             animator.SetBool("IsJumping", true);
+            jumpCount--;
         }
 
         if (Input.GetKeyDown("w") && rb.velocity.y > 0f )
@@ -37,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-        
         
         Flip();
     }
@@ -74,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             animator.SetBool("IsJumping", false);
+            animator.SetBool("IsDoubleJumping", false);
+
         }
     }
 }
