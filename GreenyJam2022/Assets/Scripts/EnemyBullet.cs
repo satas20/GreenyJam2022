@@ -4,31 +4,43 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public float dieTime, damage;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float speed;
+    [SerializeField] private float resetTime;
+    private float lifetime;
+    private Animator anim;
+    private BoxCollider2D coll;
+
+    private bool hit;
+
+    private void Awake()
     {
-        StartCoroutine(countDownTimer());
+       // anim = GetComponent<Animator>();
+        coll = GetComponent<BoxCollider2D>();
+        
+        //gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right*speed);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
+        lifetime += Time.deltaTime;
+        if (lifetime > resetTime)
+            Destroy(gameObject);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        die();
+        if (collision.gameObject.CompareTag("Player")) {
+            PlayerMovement.WaterCount--;
+            Destroy(gameObject);
+
+        }
+
+        if (collision.gameObject.CompareTag("Ground")) {
+            Destroy(gameObject);
+
+        }
     }
 
-    IEnumerator countDownTimer()
-    {
-        yield return new WaitForSeconds(dieTime);
-        die(); 
-    }
-
-    void die()
-    {
-        Destroy(gameObject);
-    }
 }
