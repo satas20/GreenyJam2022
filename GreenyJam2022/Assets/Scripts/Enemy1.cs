@@ -36,7 +36,10 @@ public class Enemy1 : MonoBehaviour
             animator.SetBool("Insight", true);
 
             if (cooldownTimer >= atackColdown){
-                PlayerMovement.WaterCount--;
+                if (PlayerMovement.WaterCount > 0)
+                {
+                    PlayerMovement.WaterCount--;
+                }
                 animator.SetBool("Atack",true);
                 cooldownTimer = 0;
             }
