@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
-    public static int WaterCount=1;
+    public static int WaterCount=3;
     public Animator animator;
     bool isJumping = false;
     [SerializeField] private Rigidbody2D rb;

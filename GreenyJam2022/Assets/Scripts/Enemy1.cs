@@ -9,11 +9,12 @@ public class Enemy1 : MonoBehaviour
     public Transform groundDetection;
     public float distance;
     [SerializeField] private float range;
-
+    [SerializeField] private float atackColdown;
+    private float cooldownTimer;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private  BoxCollider2D boxCollider;
+    public Animator animator;
     // Start is called before the first frame update
-    private float coolDownTimer;
     void Start()
     {
         
@@ -22,8 +23,25 @@ public class Enemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerInSight() ==false) { Patrol();}
-        else { Debug.Log(PlayerInSight()); }
+        cooldownTimer += Time.deltaTime;
+
+        if (PlayerInSight() ==false) {
+           // animator.SetBool("Patroling", true);
+            Patrol();
+            animator.SetBool("Atack", false);
+            animator.SetBool("Insight", false);
+
+        }
+        else {
+            animator.SetBool("Insight", true);
+
+            if (cooldownTimer >= atackColdown){
+                PlayerMovement.WaterCount--;
+                animator.SetBool("Atack",true);
+                cooldownTimer = 0;
+            }
+             //animator.SetBool("Atack", false);
+        }
 
     }
     private void Patrol() {
@@ -53,5 +71,28 @@ public class Enemy1 : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center+ transform.right * range, boxCollider.bounds.size);
+    }
+    public void setAnimFalse() 
+    {
+        animator.SetBool("Atack", false);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      if(collision.gameObject.CompareTag("Bullet")) {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Enemy"))
+        {
+            if (movingRight == true)
+            {
+                transform.eulerAngles = new Vector3(0, -180, 0);
+                movingRight = false;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                movingRight = true;
+            }
+        }
     }
 }
