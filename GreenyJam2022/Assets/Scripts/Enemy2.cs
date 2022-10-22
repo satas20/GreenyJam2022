@@ -57,11 +57,11 @@ public class Enemy2 : MonoBehaviour
         cooldownTimer = 0;
         GameObject bulletenemy =GameObject.Instantiate(enemyBullet,firePoint.position,Quaternion.identity);
         if (movingRight) {
-            //bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.right*200);
+            bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.right*200);
         }
         else
         {
-            //bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
+            bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
         }
     }
     private void Patrol()

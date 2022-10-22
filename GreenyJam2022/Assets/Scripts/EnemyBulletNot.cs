@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class EnemyBulletNot : MonoBehaviour
 {
+
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
     private float lifetime;
@@ -14,18 +15,17 @@ public class EnemyBullet : MonoBehaviour
 
     private void Awake()
     {
-        target =GameObject.FindGameObjectWithTag("Player");
-       // anim = GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player");
+        // anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
-        
-        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right*speed);
+
+        //gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right*speed);
 
     }
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position
-            , Time.deltaTime * speed);
+        //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * speed);
         lifetime += Time.deltaTime;
         if (lifetime > resetTime)
             Destroy(gameObject);
@@ -33,17 +33,18 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) {
+        if (collision.gameObject.CompareTag("Player"))
+        {
             PlayerMovement.WaterCount--;
             Destroy(gameObject);
 
         }
 
-        if (collision.gameObject.CompareTag("Ground")) {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
             Destroy(gameObject);
 
         }
         //die(); 
     }
-
 }

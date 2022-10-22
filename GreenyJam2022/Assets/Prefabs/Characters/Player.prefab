@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3230679803125077130}
+  jumpCount: 0
   rb: {fileID: 3230679803125077872}
   groundCheck: {fileID: 3230679803903667459}
   groundLayer:
