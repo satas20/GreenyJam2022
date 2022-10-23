@@ -18,7 +18,7 @@ public class EnemyBulletNot : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
         // anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
-
+        
         //gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right*speed);
 
     }

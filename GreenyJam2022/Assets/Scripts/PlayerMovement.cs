@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -45,7 +46,25 @@ void Update()
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-        
+        if (Input.GetKeyDown("m") )
+        {
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene + 1, LoadSceneMode.Single);
+            Time.timeScale = 1;
+        }
+        if (Input.GetKeyDown("n"))
+        {
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene -1, LoadSceneMode.Single);
+            Time.timeScale = 1;
+        }
+        if (Input.GetKeyDown("r"))
+        {
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene , LoadSceneMode.Single);
+            Time.timeScale = 1;
+        }
+
         Flip();
     }
 

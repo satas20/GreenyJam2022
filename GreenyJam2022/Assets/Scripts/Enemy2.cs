@@ -59,19 +59,20 @@ public class Enemy2 : MonoBehaviour
     }
     private void rangedAtack(){
         cooldownTimer = 0;
-        for(int i=0; i < bulletcount; i++)
+        GameObject bulletenemy = GameObject.Instantiate(enemyBullet, firePoint.position, Quaternion.identity);
+       
+
+        if (movingRight)
         {
-            GameObject bulletenemy = GameObject.Instantiate(enemyBullet, firePoint.position, Quaternion.identity);
-            if (movingRight && PlayerInSight()!)
-            {
-                bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
-            }
-            else if (movingRight! && PlayerInSight()!)
-            {
-                bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
-            }
+           
+
+            bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 300);
         }
-      
+        else  
+        {
+            bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 300);
+        }
+
     }
     private void Patrol()
     {
