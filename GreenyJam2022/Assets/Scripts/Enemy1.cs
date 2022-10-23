@@ -84,7 +84,7 @@ public class Enemy1 : MonoBehaviour
       if(collision.gameObject.CompareTag("Bullet")) {
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             if (movingRight == true)
             {
