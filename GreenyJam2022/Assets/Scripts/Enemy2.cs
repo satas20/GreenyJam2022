@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy2 : MonoBehaviour
 {
+    [SerializeField] private bool isBoss;
 
     public float speed;
     private bool movingRight = true;
@@ -18,7 +20,9 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     private Transform target;
     private Transform player;
-    private int health = 2;
+    [SerializeField] private int health;
+    [SerializeField] private int bulletcount;
+
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -55,14 +59,19 @@ public class Enemy2 : MonoBehaviour
     }
     private void rangedAtack(){
         cooldownTimer = 0;
-        GameObject bulletenemy =GameObject.Instantiate(enemyBullet,firePoint.position,Quaternion.identity);
-        if (movingRight) {
-            bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.right*200);
-        }
-        else
+        for(int i=0; i < bulletcount; i++)
         {
-            bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
+            GameObject bulletenemy = GameObject.Instantiate(enemyBullet, firePoint.position, Quaternion.identity);
+            if (movingRight && PlayerInSight()!)
+            {
+                bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200);
+            }
+            else if (movingRight! && PlayerInSight()!)
+            {
+                bulletenemy.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
+            }
         }
+      
     }
     private void Patrol()
     {
@@ -99,10 +108,30 @@ public class Enemy2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+
+            if ( PlayerInSight()!)
+            {
+                if (movingRight == true)
+                {
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    movingRight = false;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    movingRight = true;
+                }
+            }
+           
             health--;
             {
                 if(health == 0)
                 {
+                    if (isBoss) {
+                        int scene = SceneManager.GetActiveScene().buildIndex;
+                        SceneManager.LoadScene(scene + 1, LoadSceneMode.Single);
+                        Time.timeScale = 1;
+                    }
                     Destroy(gameObject);
                 }
             }

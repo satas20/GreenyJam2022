@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7431072000644837106}
   - component: {fileID: -9165250086087825939}
   - component: {fileID: -4121648112888239246}
+  - component: {fileID: 8999359236907648494}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
@@ -123,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!95 &-4121648112888239246
 Animator:
   serializedVersion: 4
@@ -144,3 +145,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8999359236907648494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540059752379012653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a05fa7431e7de54ea095e8542d6cb02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bosscollider: {fileID: 6814839018690535221, guid: 452e62ff8e21f6041ac580d909599318, type: 3}

@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!114 &6814839018690535231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +192,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   boxCollider: {fileID: 6814839018690535221}
+  health: 10
+  bulletcount: 3
   animator: {fileID: 4245823244497987794}
 --- !u!61 &6814839018690535228
 BoxCollider2D:

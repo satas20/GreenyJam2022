@@ -91,5 +91,24 @@ void Update()
                 PlayerMovement.WaterCount--;
             }
         }
+        if (collision.gameObject.CompareTag("PlayerDie"))
+        {
+            PlayerMovement.WaterCount = 0;
+            //Destroy(collision.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            PlayerMovement.WaterCount++;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("PlayerDie"))
+        {
+            PlayerMovement.WaterCount =0;
+            //Destroy(collision.gameObject);
+        }
+
     }
 }
