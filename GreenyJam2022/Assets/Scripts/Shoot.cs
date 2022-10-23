@@ -18,7 +18,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("e") && !isShooting && PlayerMovement.WaterCount>0)
+        if (Input.GetKeyDown("e") && !isShooting && PlayerMovement.WaterCount>1)
         {
             PlayerMovement.WaterCount = PlayerMovement.WaterCount - 1;
             StartCoroutine(Ishoot());
