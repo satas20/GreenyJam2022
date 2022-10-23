@@ -108,18 +108,18 @@ public class Enemy2 : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Enemy"))
-        {
-            if (movingRight == true)
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
-            }
-        }
+        //if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Enemy"))
+        //{
+        //    if (movingRight == true)
+        //    {
+        //        transform.eulerAngles = new Vector3(0, -180, 0);
+        //        movingRight = false;
+        //    }
+        //    else
+        //    {
+        //        transform.eulerAngles = new Vector3(0, 0, 0);
+        //        movingRight = true;
+        //    }
+        //}
     }
 }
