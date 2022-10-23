@@ -181,9 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ade8d54292d01543b1b9b26e457a38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBoss: 0
   speed: 3
   groundDetection: {fileID: 7736447413178574163}
-  distance: 2
+  distance: 0.002
   range: 0.86
   atackColdown: 3
   firePoint: {fileID: 7736447412822510270}
