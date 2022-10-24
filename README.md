@@ -20,5 +20,5 @@ This is a platformer game that created for Greeny Jam 2022  theme was "very limi
 - 2021.3.11f1
 
 ## Itch.io
-You can play it on browser from this link:
+You can download PC build and play from this link:
 - https://satas20.itch.io/the-last-seed-greeny-jam-2022
